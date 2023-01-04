@@ -1,0 +1,24 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Add Book{% endblock %}
+
+{% block styles %}
+{{super()}}
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/main.css') }}">
+        
+{% endblock %}
+
+{% block content %}
+
+    <body class="center-everything">
+        
+        <div class="center-text">
+            {{ wtf.quick_form(form, novalidate=True) }}
+        </div>
+        <button type="submit" class="btn btn-block btn-warning go-back-button"><a href="{{ url_for('home') }}" class="go-back-color">Go Back</a> </button>
+    </body>
+
+{% endblock %}

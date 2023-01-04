@@ -1,0 +1,28 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Add Book{% endblock %}
+
+{% block styles %}
+{{super()}}
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/main.css') }}">
+
+{% endblock %}
+
+{% block content %}
+
+    <body class="center-everything">
+        
+        <form action="{{ url_for('edit') }}" method="POST" class="center-everything">
+            <h1>Book Name: {{ book.title }}</h1>
+            <h2 class="rating-text">Current Rating {{ book.rating }}</h2>
+            <input hidden="hidden" name="id" value="{{ book.id }}">
+            <input name="rating" type="text" placeholder="New Rating" class="input-text">
+            <button type="submit" class="btn btn-warning edit-button">Change Rating</button>
+        </form>
+
+    </body>
+
+{% endblock %}

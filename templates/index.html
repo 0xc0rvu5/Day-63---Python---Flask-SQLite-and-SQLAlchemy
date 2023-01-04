@@ -1,0 +1,32 @@
+{% extends 'bootstrap/base.html' %}
+
+
+{% block title %}Library{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+    href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
+
+{% block content %}
+<body class="center-everything">
+    {% if all_books == [] %}
+        <h1>My Library</h1>
+        <p>Library is empty</p>
+        <button class="btn btn-success"><a href="{{ url_for('add') }}" class="add-new-book-color">Add New Book</a></button>
+    {% else %}
+    <h1 class="pad-left-title">My Library</h1>
+    <ul class="pad-left">
+        {% for book in all_books %}
+            <div>
+                <li class="left">{{ book.title }} - {{ book.author }} - {{ book.rating }}/10</li>
+                <a href="{{ url_for('delete', id=book.id) }}" class="right">Delete</a>
+                <a href="{{ url_for('edit', id=book.id) }}" class="right">New Rating</a>
+            </div>
+        {% endfor %}
+    </ul>
+    <button class="btn btn-success pad-left-link"><a href="{{ url_for('add') }}" class="add-new-book-color">Add New Book</a></button>
+    {% endif %}
+</body>
+{% endblock %}

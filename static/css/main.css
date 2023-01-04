@@ -1,0 +1,93 @@
+body {
+  background-color: #333;
+  color: white;
+}
+
+a {
+  color: #ffc107;
+}
+
+.jumbotron {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+  color: white;
+  background-color: #333;
+}
+
+.space-above {
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.center-everything {
+  height: 100vh;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.pad-left {
+  padding-right: 45px;
+}
+
+.pad-left-title {
+  margin-right: 25px;
+}
+
+.pad-left-link {
+  /* padding-right: 25px; */
+  margin-right: 35px;
+  color: rgb(83, 221, 83);
+}
+
+.center-text {
+  text-align: center;
+}
+
+.align-items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left {
+  float: left;
+  margin-right: 10px;
+}
+
+.right {
+  float: right;
+  margin-left: 10px;
+}
+
+.edit-button {
+  margin-top: 3%;
+  width: 181px;
+}
+
+.rating-text {
+  margin-top: 0;
+}
+
+.input-text {
+  color: black;
+}
+
+.go-back-button {
+  width: 207px;
+  margin-top: 20px;
+}
+
+.go-back-color {
+  color: white;
+}
+
+.add-new-book-color {
+  color: white;
+}
