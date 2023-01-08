@@ -11,7 +11,7 @@ from flask_sqlalchemy import SQLAlchemy
 SECRET_KEY = os.urandom(32)
 APP = Flask(__name__, template_folder='templates', static_folder='static')
 APP.config['SECRET_KEY'] = SECRET_KEY
-APP.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///new-books-collection.db"
+APP.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///new-books-collection.db'
 APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
@@ -39,7 +39,7 @@ with APP.app_context():
     # db.create_all()
 
     # # create column
-    # new_book = Book(title="Harry Potter 8", author="J. K. Rowling", rating=9)
+    # new_book = Book(title='Harry Potter 8', author='J. K. Rowling', rating=9)
     # db.session.add(new_book)
     # db.session.commit()
 
@@ -57,7 +57,7 @@ def home():
     return render_template('index.html', all_books=Book.query.all())
 
 
-@APP.route("/add", methods=['GET', 'POST'])
+@APP.route('/add', methods=['GET', 'POST'])
 def add():
     form = BookForm()
     if form.validate_on_submit():
@@ -74,17 +74,17 @@ def add():
 
 @APP.route('/edit', methods=['GET', 'POST'])
 def edit():
-    if request.method == "POST":
+    if request.method == 'POST':
         #edit by id
-        book_id = request.form["id"]
+        book_id = request.form['id']
         book_to_update = Book.query.get(book_id)
-        book_to_update.rating = request.form["rating"]
+        book_to_update.rating = request.form['rating']
         db.session.commit()
         return redirect(url_for('home'))
 
     book_id = request.args.get('id')
     book_selected = Book.query.get(book_id)
-    return render_template("edit.html", book=book_selected)
+    return render_template('edit.html', book=book_selected)
 
 
 @APP.route('/delete', methods=['GET', 'POST'])
@@ -97,5 +97,5 @@ def delete():
     return redirect(url_for('home'))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     APP.run(debug=True)
